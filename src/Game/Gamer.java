@@ -21,13 +21,14 @@ public class Gamer {
         int dice=random.nextInt(6)+1;
         if(dice==1){
             money+=100;
-            System.out.println("所持金钱增加了");
+            System.out.println("所持金钱增加了。");
         }else if(dice==2){
             money/=2;
-            System.out.println("所持金钱减半了");
+            System.out.println("所持金钱减半了。");
         }else if(dice==6){
             String f=getFruit();
             System.out.println("获得了水果（"+f+")。");
+            fruits.add(f);
         }else System.out.println("什么都没有发生。");
     }
     public Memento createMemento(){
@@ -43,7 +44,7 @@ public class Gamer {
     }
     public void restoreMemento(Memento memento){
         this.money=memento.money;
-        this.fruits=memento.fruits;
+        this.fruits=memento.getFruits();
     }
     public String toString(){
         return "[money = "+money+", fruits = "+fruits+"]";
